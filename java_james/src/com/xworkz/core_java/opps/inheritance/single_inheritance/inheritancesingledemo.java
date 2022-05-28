@@ -1,13 +1,9 @@
 package com.xworkz;
-
-public class inheritancesingledemo {
-	public static void main(String[] args) {
-	manoj manoj=new manoj();
-	raghu raghu=new raghu();
-	raghu.playing();
-	raghu.singing();
-	
-	
-
+public class inheritancesingledemo{
+public static void main(String[] args) {
+	manoj mano=new manoj();
+	raghu ragh=new raghu();
+	ragh.playing();
+	ragh.singing();
 }
 }

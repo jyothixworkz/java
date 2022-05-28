@@ -1,4 +1,5 @@
-package com.xworkz;
+package com.xworkz
+}
 
 public class cow {
 	void milk(){
