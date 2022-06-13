@@ -1,4 +1,4 @@
-package com.xworkz;
+package com.xworkz.core_java.opps.inheritance.single_inheritance;
 
 public class inheritancesingle {
 	public static void main(String[] args) {
