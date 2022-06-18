@@ -1,0 +1,87 @@
+Q NO-1
+java is not pure object oriented programming language the reason behind 
+this is java does not give support to full opps concept like multiple inheritance etc
+more over java uses primitive data type which is no way related to objects
+ thats the reoson java is not pure object oriented programming language
+ 
+ 
+ Q NO-6
+jvm execute main methode only then this methode as to be call without object 
+then it should be a static . main method is no way related to objects
+
+
+Q NO-9
+ in java there are  five memory location is there namely 
+ 1 METHOD MEMORY AREA -  in this area the class level data and satatic variable 
+ are stored
+ 2 HEAP MEMORY AREA- in this area the object level data and instance variable 
+ are stored
+ 3 STACK MEMORY AREA- in this area the local variable are stored 
+ 4 P C REGISTER MEMORY AREA(PROGRAMME COLLECTOR MEMORY AREA)- in this area the 
+ next execution adress are stored 
+ 5 NATIVE METHOD MEMOEY AREA- in this area the native information from parent C and C++
+ data are stored
+ 
+ 
+ Q NO-10
+   INSTANCE VARIABLE                           LOCAL VARIABLE
+ 1-  the value of the variable vary from        1-  to achiev some task the programmer 
+ object to object then the variable is known      need some temparary variable with in 
+ as instance variable                           the block that vaeiable is known as local    
+  2- the instance variable declare with in the   2- local variable declare with in the
+  class but out side the methode, block           block, method
+ 3- the instatnce variable is creat while object   3- the local variable created while
+ creation and destroy at a time of object destroy    block creation and destroy at a 
+ then the scope of the instance variable is same     time of block destroy then the scope ia
+ object                                               same as block
+ 4- the instance variable is stored in heap memory   4- local are stored in stack memory area
+ area
+ 5-for instatce variable the jvm will give default  5-for local initialization is explicitly 
+ values we are not required to give initialization     required
+ explicitly
+ 
+ 
+ 
+ Q NO -11
+ if we are not declare main method as static the jvm is not going to 
+ execute main method beacuse of 
+ before creating a object we cannot call instace methode 
+ to creat a object we want to execute first  then only the object
+ created thats the reason the main methodeis static mai method is no way related to object
+ 
+ 
+ Q NO -12
+  jdk full form is java development kit 
+  jdk is set of tools and it is responsible for development and also 
+  execution of java programmer
+   THE VARIANT OF JDK
+   1- jdk for windows
+   2- jdk for mac
+   3 - jdk for linux
+   etc
+   
+   
+   
+  Q no 13
+   the difference b/w jdk jre and jvm
+    jdk-java development kit is a set of tools and responsible for 
+	development and execution and it contain jre and development tools
+	
+	
+   jre- java runtime environment is responsible for to give run time
+   environment to our java programmerand it contains jvm and some library
+   
+   
+   jvm- java vartual machine is responsible for execution our java programme
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
