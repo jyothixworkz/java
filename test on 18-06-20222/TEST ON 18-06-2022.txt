@@ -74,6 +74,51 @@ Q NO-9
    
    jvm- java vartual machine is responsible for execution our java programme
    
+   
+   Q NO 29
+   
+   
+   inheritance 
+    inheritanceis the basic principle followed fy java 
+	the process of the child class inherit the property from parent class is known as inheritance
+	 in this we are using extends as a key word 
+	 up arrow as indication
+	 the types of inheritance
+	 1 single- it inherit the proporty from single parent to single child
+	 
+	class singleinheritancedemo{
+	public static void main(String[] args){
+	 child c= new child();
+	 c.money();
+	 c.car();
+	 }
+	 }
+	 
+	 
+	 
+	 class child extends parent{
+	 void money(){
+	 system.out.println("10000");
+	 }
+	 }
+	 
+	 class parent{
+	 void car(){
+	 system.out.prinln("honda");
+	 }
+	 }
+	 
+	 
+	 
+	 
+	 2 multilevel -  sub class can access the property from supper  
+	 class then that thesub class act as a 
+	 super class foranather child then it is known as multilevel inheritance
+	 3 hierarchical for one parent class going to share the property to two child
+	 4 multiple- in this one child class inherits the property from two parents its not possiblewith class bu achiev 
+	 in interface
+	 5 hybrid - name its self its indicated its combination of above cases and it is also not possible
+   
  
  
  
