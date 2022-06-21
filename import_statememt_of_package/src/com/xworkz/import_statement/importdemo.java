@@ -1,6 +1,6 @@
 package com.xworkz.import_statement;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 //by using fully qualified name
 public class importdemo {
