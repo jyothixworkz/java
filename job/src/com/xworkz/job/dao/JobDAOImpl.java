@@ -18,7 +18,7 @@ public class JobDAOImpl implements JobDAO {
 			Connection connection=DriverManager.getConnection(URL.getValue(),USERNAME.getValue(), SECRET.getValue());
 			String insertSql="insert into job.job_inf value(?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insertSql);
-			statement.setInt(1, jobDTO.);
+  
 			
 		}
 		   catch (SQLException e) {
