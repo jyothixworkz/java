@@ -31,4 +31,9 @@ public static PartySymbolType getByName(String type) {
 		return null;
 	
 }
+
+public static PartySymbolType getBySymbol(String symbol) {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

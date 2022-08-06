@@ -37,6 +37,11 @@ BJP("BJP"),KJP("KJP"),JDS("JDS"),AAMAADMI("Aamaadmi"),RSS("RSS"),PRAJAKEEYA("Pra
 		
 		
 	}
+
+	public static PartyNameType getByParty(String prName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

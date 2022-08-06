@@ -53,17 +53,13 @@ public class PoliticianRunner {
 
 		PoliticianDAO politicianDAO=new PoliticianDAOImpl();
 
-		politicianDAO.save(politicianDTO);
-		politicianDAO.save(politicianDTO1);
-		politicianDAO.save(politicianDTO2);
-		politicianDAO.save(politicianDTO3);
-		politicianDAO.save(politicianDTO4);
-		politicianDAO.save(politicianDTO5);
-		politicianDAO.save(politicianDTO6);
-		politicianDAO.save(politicianDTO7);
-		politicianDAO.save(politicianDTO8);
-		politicianDAO.save(politicianDTO9);
-		
+		/*
+		 * politicianDAO.save(politicianDTO); politicianDAO.save(politicianDTO1);
+		 * politicianDAO.save(politicianDTO2); politicianDAO.save(politicianDTO3);
+		 * politicianDAO.save(politicianDTO4); politicianDAO.save(politicianDTO5);
+		 * politicianDAO.save(politicianDTO6); politicianDAO.save(politicianDTO7);
+		 * politicianDAO.save(politicianDTO8); politicianDAO.save(politicianDTO9);
+		 */
 
 System.out.println("====================================================");
 
@@ -83,7 +79,7 @@ System.out.println("==============================");
     String  s=politicianDAO.findNameByPid(8);
 System.out.println(s);
 System.out.println("😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂🙌🙌🙌🙌");
-String  d=politicianDAO.findPresidentByPidAndName(1, "manoj");
+String  d=politicianDAO.findPresidentByPidAndName(1, " manoj");
 System.out.println(d);
 
 politicianDAO.getTotal();
