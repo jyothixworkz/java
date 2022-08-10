@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.format.ResolverStyle;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import javax.print.DocFlavor.SERVICE_FORMATTED;
 
 import org.w3c.dom.ls.LSResourceResolver;
 
@@ -281,5 +284,144 @@ public class JavaDAOImpl implements JavaDAO
 		
 	}
 
+	@Override
+	public String findMainThreadByid(int id) {
+		
+		try(	Connection connection=DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());) {
+			String select="SELECT * FROM java.java_inf where id=?";
+			PreparedStatement preparedStatement=connection.prepareCall(select);
+			preparedStatement.setInt(1, id);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				
+			String mainThread2=resultSet.getString(7);
+			//JavaDTO javaDTO=new JavaDTO();
+			//javaDTO.setMainThread(mainThread2);
+			 
+			return mainThread2;
+			
+				
+				
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return null;
+	}
 
-}
+	@Override
+	public String findParentByidAndMainThread(int id, String mainThread) {
+		try (Connection connection=DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());){
+			String select = "SELECT * FROM java.java_inf where id=? and mainThread=?";
+			PreparedStatement preparedStatement=connection.prepareStatement(select);
+			preparedStatement.setInt(1,id);
+			preparedStatement.setString(2, mainThread);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			System.out.println("🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️");
+			while(resultSet.next()) {
+				System.out.println("🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️");
+			String parent3 =resultSet.getString(3);
+			
+				return parent3;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public int getTotal() {
+		try (	Connection connection =DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());){
+			String select ="SELECT * FROM java.java_inf";
+			PreparedStatement preparedStatement=connection.prepareCall(select);
+			  ResultSet resultSet=preparedStatement.executeQuery();
+			  AtomicInteger atomicInteger=new AtomicInteger();
+			  while(resultSet.next()) {
+				  atomicInteger.incrementAndGet();
+				  
+				  
+			  }
+			  System.err.println(atomicInteger.get());	  
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+
+	@Override
+	public JavaDTO findClassNameByMaxNoOfMethod() {
+		
+		try(Connection connection=DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());) {
+			String select="SELECT * FROM java.java_inf ";
+			PreparedStatement preparedStatement= connection.prepareCall(select);
+			
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				 Integer id1=resultSet.getInt(1);
+				 String className1=resultSet.getString(2);
+				  String parent1=resultSet.getString(3);
+				  String mainParent1=resultSet.getString(4);
+				  String  oneMethodName1=resultSet.getString(5);
+				  Integer noOfmethods1=resultSet.getInt(6);
+				  String mainThread1=resultSet.getString(7);
+				  String methodsModifier1=resultSet.getString(8);
+				  String returnType1=resultSet.getString(9);
+				  String argType1=resultSet.getString(10);
+				  Integer defaultConstructor1=resultSet.getInt(11);
+				  String classModifie=resultSet.getString(12);
+				  Integer noOfClassModifier1=resultSet.getInt(13);
+				  Integer noOfMethodModifier1=resultSet.getInt(14);
+				  Integer noOfConstructorModifier1=resultSet.getInt(15);
+				  String constructorReturnType1=resultSet.getString(16);
+				  String constructorType1=resultSet.getString(17);
+				  String childClass1=resultSet.getString(18);
+				  Integer noOfChildClass1=resultSet.getInt(19);
+				  Integer noOfParent1=resultSet.getInt(20);
+				  String defaultParent1=resultSet.getString(21);
+				  JavaDTO javaDTO=new JavaDTO();
+				  javaDTO.setId(id1);
+				  javaDTO.setClassName(ClassNames.getByName(className1));
+				  javaDTO.setParent(parent1);
+				  javaDTO.setMainParent(mainParent1);
+				  javaDTO.setOneMethodName(oneMethodName1);
+				  javaDTO.setNoOfmethods(noOfmethods1);
+				  javaDTO.setMainThread(mainThread1);
+				  javaDTO.setMethodsModifier(MethodModifier.getByModifier(methodsModifier1));
+				  javaDTO.setReturnType(returnType1);
+				  javaDTO.setArgType(argType1);
+				  javaDTO.setDefaultConstructor(defaultConstructor1);
+				  javaDTO.setClassModifier(ClassModifier.getbyname(classModifie));
+				  javaDTO.setNoOfClassModifier(noOfClassModifier1);
+				  javaDTO.setNoOfMethodModifier(noOfMethodModifier1);
+				  javaDTO.setNoOfConstructorModifier(noOfConstructorModifier1);
+				  javaDTO.setConstructorReturnType(constructorReturnType1);
+				  javaDTO.setConstructorType(constructorType1);
+				  javaDTO.setChildClass(childClass1);
+				  javaDTO.setNoOfChildClass(noOfChildClass1);
+				  javaDTO.setNoOfParent(noOfParent1);
+				  javaDTO.setDefaultParent(defaultParent1);
+				  
+				return javaDTO;  
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+
+	}
+
+
+
+

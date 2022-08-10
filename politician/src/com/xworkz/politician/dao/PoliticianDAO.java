@@ -24,18 +24,27 @@ public interface PoliticianDAO {
 	int getTotal();
 
 	PoliticianDTO findPartyNameByMaxMembers();
-	default List<PoliticianDTO> findAll(){
+	default void test() {
+		System.out.println("default impl of test");
+	}
+
+	default List<PoliticianDTO> findAll() {
 		return Collections.EMPTY_LIST;
 	}
-	default List<String> findAllPartyName(){
-		return null;		
-	}
-	default List<Integer> findAllIds(){
-		return null;	
-	}
-	default List<Object> findAllNoOfMembersAndFundAndPartyName(){
-		return null;
 		
+      default List<String> findAllPartyName() {
+		return null;
 	}
+      default List<Integer> findAllIds(){
+		return null;
+    	  
+      }
+      default List<Object> findAllNoOfMembersAndTotalBudgetAndPartyName(){
+		return null;
+    	  
+      }
+
+	
+
 
 }

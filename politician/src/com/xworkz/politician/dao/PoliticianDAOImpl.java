@@ -330,80 +330,74 @@ public class PoliticianDAOImpl implements PoliticianDAO {
 	}
 	@Override
 	public List<PoliticianDTO> findAll() {
-		try {
-			Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());
-			String selectSql = "Select * from politicians_info";
-			PreparedStatement statement = connection.prepareStatement(selectSql);
-			ResultSet resultSet = statement.executeQuery();
-			List<PoliticianDTO> list = new ArrayList<PoliticianDTO>();
-			while (resultSet.next()) {
-				Integer cid = resultSet.getInt(1);
-				String pName = resultSet.getString(2);
-				String prName = resultSet.getString(3);
-				String president = resultSet.getString(4);
-				Integer numberOfMenbers = resultSet.getInt(5);
-				Double budget = resultSet.getDouble(6);
-				String symbol = resultSet.getString(7);
-				String location = resultSet.getString(8);
-				String hQuaters = resultSet.getString(9);
-
-				PoliticianDTO politicianDTO = new PoliticianDTO();
-				politicianDTO.setPid(cid);
-				politicianDTO.setName(pName);
-				politicianDTO.setPartyName(PartyNameType.getByParty(prName));
-				politicianDTO.setPresident(president);
-				politicianDTO.setTotalMember(numberOfMenbers);
-				politicianDTO.setPartyBudget(budget);
-				politicianDTO.setPartySymbol(PartySymbolType.getBySymbol(symbol));
+		try(Connection connection=DriverManager.getConnection(URL.getValue(),USERNAME.getValue(), SECRET.getValue());) {
+			String selectSql="SELECT * FROM politician.politician_inf";
+			PreparedStatement statement	=connection.prepareStatement(selectSql);
+			ResultSet resultSet	=statement.executeQuery();
+			List<PoliticianDTO> list=new ArrayList<PoliticianDTO>();
+			while(resultSet.next()) {
+				int pk=resultSet.getInt(1);
+				String name	=resultSet.getString(2);
+				String partyName=resultSet.getString(3);
+				String president=resultSet.getString(4);
+				Integer totalMember=resultSet.getInt(5);
+				Double partyBudget=resultSet.getDouble(6);
+				String partySymbol=resultSet.getString(7);
+				String location=resultSet.getString(8);
+				String headQuater=resultSet.getString(9);
+				PoliticianDTO politicianDTO=new PoliticianDTO();
+				politicianDTO.setPid(pk);
+				politicianDTO.setName(name);
+				politicianDTO.setPartyName(PartyNameType.getByName(partyName));
+				politicianDTO.setPresident(PresidentNames.getByName(president));
+				politicianDTO.setTotalMember(totalMember);
+				politicianDTO.setPartyBudget(partyBudget);
+				politicianDTO.setPartySymbol(PartySymbolType.getBySymbol(partySymbol));
 				politicianDTO.setPartyLocation(location);
-				politicianDTO.setHeadquaters(hQuaters);
-
+				politicianDTO.setHeadquaters(headQuater);
 				list.add(politicianDTO);
 			}
-			System.out.println("Added Details :" +list.size());
+			System.out.println("Total politician added" +" "+list.size());
 			return list;
-			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return PoliticianDAO.super.findAll();
 	}
-	
 	@Override
 	public List<String> findAllPartyName() {
 		try {
-			Connection connection = DriverManager.getConnection(URL.getValue(),USERNAME.getValue(), SECRET.getValue());
-			String get = "select partyName from politicians_info";
-			PreparedStatement stmt = connection.prepareStatement(get);
-			ResultSet resultSet = stmt.executeQuery();
-			List<String> str = new ArrayList<String>();
+			Connection connection=DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());
+			String selectSql="Select partyName from politician.politician_inf";
+			PreparedStatement statment=connection.prepareStatement(selectSql);
+			ResultSet resultSet	=statment.executeQuery();
+			List<String> list=new ArrayList<String>();
 			while(resultSet.next()) {
-				String pName = resultSet.getString(1);
-				str.add(pName);
+				String partyName=resultSet.getString(1);
+				list.add(partyName);
 			}
-			System.out.println("No of Parties..!" + str.size());
-			return str;
+			System.out.println("PartyName is added"+ " "+list.size());
+			return list;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return PoliticianDAO.super.findAllPartyName();
 	}
-	
 	@Override
 	public List<Integer> findAllIds() {
-		try {
-			Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(),SECRET.getValue());
-			String query = "select cid from politicians_info";
-			PreparedStatement stmt = connection.prepareStatement(query);
-			ResultSet resultSet = stmt.executeQuery();
-			List<Integer> list = new ArrayList<Integer>();
+		try(Connection connection	=DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue())) {
+			String selectSql="Select pid from politician.politician_inf";
+			PreparedStatement statment	=connection.prepareStatement(selectSql);
+			ResultSet resultSet	=statment.executeQuery();
+			List<Integer> list=new ArrayList<Integer>();
 			while(resultSet.next()) {
-				Integer cid = resultSet.getInt(1);
-					list.add(cid);
+				Integer	pid=resultSet.getInt(1);
+				list.add(pid);
 			}
-			System.out.println("The Number of Id present:" + list.size());
+			System.out.println("Ids are added:"+list.size());
 			return list;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -412,29 +406,30 @@ public class PoliticianDAOImpl implements PoliticianDAO {
 		return PoliticianDAO.super.findAllIds();
 	}
 	
+	
+	
 	@Override
-	public List<Object> findAllNoOfMembersAndFundAndPartyName() {
-		try {
-			Connection connection = DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());
-			String sql = "select totalMembers,totalBudjet,partyName from politicians_info";
-			PreparedStatement stmt = connection.prepareStatement(sql);
-			ResultSet resultSet = stmt.executeQuery();
-			List<Object> list = new ArrayList<Object>();
+	public List<Object> findAllNoOfMembersAndTotalBudgetAndPartyName() {
+		try(Connection connection=DriverManager.getConnection(URL.getValue(), USERNAME.getValue(), SECRET.getValue());) {
+			String selectSql="Select totalMember,partybudget,partyname From politician.politician_inf";
+			PreparedStatement statement	=connection.prepareStatement(selectSql);
+			ResultSet resultSet	=statement.executeQuery();
+			List<Object> list=new ArrayList<Object>();
 			while(resultSet.next()) {
-				Integer members = resultSet.getInt(1);
-				Double budjet = resultSet.getDouble(1);
-				String name = resultSet.getString(3);
-				list.add(members);
-				list.add(budjet);
-				list.add(name);
+				Integer totalMembers=resultSet.getInt(1);
+				Double totalBudget=resultSet.getDouble(2);
+				String partyName=resultSet.getString(3);
+				list.add(totalMembers);
+				list.add(totalBudget);
+				list.add(partyName);
 			}
-			System.out.println("The NoOFMenbers and TotalBudjetOfParty and PartyName is: " + list.size());
+			System.out.println("TotalNMembersAndTotalBudgetAndPartyName"+" "+list.size());
 			return list;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return PoliticianDAO.super.findAllNoOfMembersAndFundAndPartyName();
+		return PoliticianDAO.super.findAllNoOfMembersAndTotalBudgetAndPartyName();
 	}
+	
 
 }

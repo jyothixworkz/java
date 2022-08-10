@@ -83,7 +83,7 @@ String  d=politicianDAO.findPresidentByPidAndName(1, " manoj");
 System.out.println(d);
 
 politicianDAO.getTotal();
-       PoliticianDTO z=politicianDAO.findPartyNameByMaxMembers();
+      PoliticianDTO z=politicianDAO.findPartyNameByMaxMembers();
 System.out.println(z);
 
 	}
