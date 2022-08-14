@@ -22,7 +22,7 @@ public class InstituteRunner {
 		System.out.println(saved);
 		InstituteEntity show = instituteDAO.findByid(1);
 		System.out.println(show);
-		instituteDAO.updateNameAndTeacherById("xworkz", "asha m", 1);
+		instituteDAO.updateNameAndTeacherById("xworkz", "asha m test", 1);
 		instituteDAO.deleteById(1);
 
 	}
