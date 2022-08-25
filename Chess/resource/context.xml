@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+ <bean class="com.xworkzchess.Chess">
+ <constructor-arg name="nameOfTheBoard" value="clasic"></constructor-arg>
+ <constructor-arg name="noOfBox"  value="64"></constructor-arg>
+ 
+ 
+ 
+ </bean>
+ <bean class="java.lang.Integer">
+ <constructor-arg name="value" value="12"></constructor-arg>
+ 
+ 
+ </bean>
+ <bean class="java.lang.Byte">
+ <constructor-arg name="value" value="12" ></constructor-arg>
+ 
+ 
+ </bean>
+ <bean class="java.lang.Short">
+ <constructor-arg name="value" value="125" ></constructor-arg>
+ 
+ </bean>
+ <bean class="java.lang.Long">
+ <constructor-arg name="value" value="1234" ></constructor-arg>
+ </bean>
+ <bean class="java.lang.Float">
+ <constructor-arg name="value" value="125478.00" ></constructor-arg>
+ 
+ 
+ 
+ </bean>
+ <bean class="java.lang.Double">
+ <constructor-arg name="value" value="23.0000" ></constructor-arg>
+ 
+ </bean>
+ <bean class="java.lang.Character">
+ <constructor-arg name="value" value="a" ></constructor-arg>
+ 
+ </bean>
+ <bean class="java.lang.Boolean">
+ <constructor-arg name="value"  value="true"></constructor-arg>
+ 
+ 
+ 
+ </bean>
+
+</beans>

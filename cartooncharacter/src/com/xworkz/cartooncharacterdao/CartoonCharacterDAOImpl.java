@@ -1,6 +1,7 @@
 package com.xworkz.cartooncharacterdao;
 
 import java.time.LocalDateTime;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -215,7 +216,7 @@ public class CartoonCharacterDAOImpl implements CartoonCharacterDAO {
 	public void updateTypeByName(String type, String name) {
 		EntityManager manager = factory.createEntityManager();
 		try {
-			EntityTransaction tx=manager.getTransaction();
+			EntityTransaction tx = manager.getTransaction();
 			tx.begin();
 			Query query = manager.createNamedQuery("updateTypeByName");
 			query.setParameter("type", type);
@@ -224,8 +225,7 @@ public class CartoonCharacterDAOImpl implements CartoonCharacterDAO {
 			tx.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			manager.close();
 		}
 
@@ -245,6 +245,145 @@ public class CartoonCharacterDAOImpl implements CartoonCharacterDAO {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public List<CartoonCharacterEntity> findAll() {
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findAll");
+			List<CartoonCharacterEntity> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			manager.close();
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<CartoonCharacterEntity> findAllByAuthor1(String author) {
+
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findAllByAuthor1");
+			query.setParameter("author", author);
+
+			List<CartoonCharacterEntity> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			manager.close();
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<CartoonCharacterEntity> findAllByAuthorAndGender1(String author, String gender) {
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findAllByAuthorANdGender");
+			query.setParameter("author", author);
+			query.setParameter("gender", gender);
+			List<CartoonCharacterEntity> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			manager.close();
+		}
+		return null;
+	}
+
+	@Override
+	public List<String> findAllByName() {
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findAllByName");
+			List<String> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			manager.close();
+		}
+		return null;
+	}
+
+	@Override
+	public List<String> findAllcountry() {
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findAllCountry");
+			List<String> list = query.getResultList();
+			if (list != null) {
+				return list;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			manager.close();
+		}
+
+		return null;
+	}
+
+	@Override
+	public List<Object[]> findAllNameAndCoutry() {
+		EntityManager manager = factory.createEntityManager();
+		try {
+	Query query=		manager.createNamedQuery("findAllNameCountry");
+	List<Object[]> list=	query.getResultList();
+			if(list!=null) {
+				return list;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			manager.close();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Object[]> findAllNameAndCoutryAndAuthor() {
+		EntityManager manager = factory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findNameANdCountryAndAuthor");
+			List<Object[]> list =	query.getResultList();
+			if(list!=null){
+				return list;
+			
+			
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			manager.close();
+		}
+		return null;
 	}
 
 }

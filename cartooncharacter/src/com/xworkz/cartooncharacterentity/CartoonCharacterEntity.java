@@ -27,10 +27,19 @@ import lombok.*;
 		@NamedQuery(name = "findTotal", query = "select count(*) from CartoonCharacterEntity cartoon "),
 		@NamedQuery(name = "findMaxCreatedDate", query = "select max(createdDate) from CartoonCharacterEntity"),
 		@NamedQuery(name = "findByNameAndCountryAndGenderAndAuthor", query = "select cartoon from CartoonCharacterEntity cartoon where cartoon.name=:name and cartoon.country=:country and cartoon.gender=:gender and cartoon.author=:author "),
-		@NamedQuery(name="findAuthorByName",query="select cartoon.author from CartoonCharacterEntity cartoon where name=:name "),@NamedQuery(name="findNameAndCountryByAuthor",query="select cartoon.name,cartoon.country from CartoonCharacterEntity cartoon where cartoon.author=:author")
-		,@NamedQuery(name="findCreatedDateByAuthor",query="select cartoon.createdDate from CartoonCharacterEntity cartoon where cartoon.author=:author "),
-	@NamedQuery(name="updateAuthorByName",query="update CartoonCharacterEntity cartoon set cartoon.author=:author where cartoon.name=:name "),@NamedQuery(name="updateTypeByName",query="update CartoonCharacterEntity cartoon set cartoon.type=:type where cartoon.name=:name ")
-		,@NamedQuery(name="deleteByName",query="delete from CartoonCharacterEntity cartoon where name=:name ")})
+		@NamedQuery(name = "findAuthorByName", query = "select cartoon.author from CartoonCharacterEntity cartoon where name=:name "),
+		@NamedQuery(name = "findNameAndCountryByAuthor", query = "select cartoon.name,cartoon.country from CartoonCharacterEntity cartoon where cartoon.author=:author"),
+		@NamedQuery(name = "findCreatedDateByAuthor", query = "select cartoon.createdDate from CartoonCharacterEntity cartoon where cartoon.author=:author "),
+		@NamedQuery(name = "updateAuthorByName", query = "update CartoonCharacterEntity cartoon set cartoon.author=:author where cartoon.name=:name "),
+		@NamedQuery(name = "updateTypeByName", query = "update CartoonCharacterEntity cartoon set cartoon.type=:type where cartoon.name=:name "),
+		@NamedQuery(name = "deleteByName", query = "delete from CartoonCharacterEntity cartoon where name=:name "),
+		@NamedQuery(name="findAll",query="select cartoon from CartoonCharacterEntity cartoon"),
+		@NamedQuery(name="findAllByAuthor1",query="select cartoon from CartoonCharacterEntity cartoon where cartoon.author=:author "),
+		@NamedQuery(name="findAllByAuthorANdGender",query="select cartoon from CartoonCharacterEntity cartoon where cartoon.author=:author and cartoon.gender=:gender "),
+		@NamedQuery(name="findAllByName",query="select cartoon.name from  CartoonCharacterEntity cartoon"),
+		@NamedQuery(name="findAllCountry",query="select cartoon.country from  CartoonCharacterEntity cartoon"),
+		@NamedQuery(name="findAllNameCountry",query="select cartoon.name,cartoon.country from CartoonCharacterEntity cartoon "),
+		@NamedQuery(name="findNameANdCountryAndAuthor",query="select cartoon.name,cartoon.country,cartoon.author from CartoonCharacterEntity cartoon")})
 public class CartoonCharacterEntity extends CartoonCharacterParentEntity implements Serializable {
 	@GenericGenerator(name = "manoj", strategy = "increment")
 	@GeneratedValue(generator = "manoj")

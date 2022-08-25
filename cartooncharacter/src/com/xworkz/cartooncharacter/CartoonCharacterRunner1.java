@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.internal.build.AllowSysOut;
+
 import com.xworkz.cartooncharacterdao.CartoonCharacterDAO;
 import com.xworkz.cartooncharacterdao.CartoonCharacterDAOImpl;
 import com.xworkz.cartooncharacterentity.CartoonCharacterEntity;
@@ -42,27 +44,34 @@ public class CartoonCharacterRunner1 {
 		entities.add(cartoonCharacterEntity9);
 		entities.add(cartoonCharacterEntity10);
 		CartoonCharacterDAO cartoonCharacterDAO = new CartoonCharacterDAOImpl();
-	/*	//boolean save = cartoonCharacterDAO.save(entities);
-		//System.out.println(save);
-	CartoonCharacterEntity	INF=cartoonCharacterDAO.findByName("beem");
-	System.out.println(INF);
-	Integer s=cartoonCharacterDAO.total();
-	System.out.println(s);
-cartoonCharacterDAO.findMaxCreatedDate();
-//System.out.println(date);
-   CartoonCharacterEntity     inf1=cartoonCharacterDAO.findByNameAndCountryAndGenderAndAuthor("nandan", "newzeland", "male", "lakshmi");
-   System.out.println(inf1);
-  String s1= cartoonCharacterDAO.findAuthorByName("nandan");
-  System.out.println(s1);
-Object[] b = cartoonCharacterDAO.findNameAndCountryByAuthor("balala");
-System.out.println(b[0]);
-System.out.println(b[1]);
-   LocalDateTime info=cartoonCharacterDAO.findCreatedDateByAuthor("manoj");
-  // System.out.println(info);
-  // cartoonCharacterDAO.updateAuthorByName("singa", "suhas");*/
-   cartoonCharacterDAO.deleteByName("beem");
-  // cartoonCharacterDAO.updateTypeByName("serious", "lakshmi");
+		
+	/*	// boolean save = cartoonCharacterDAO.save(entities);
+		 //System.out.println(save); 
+		 CartoonCharacterEntity
+		  INF=cartoonCharacterDAO.findByName("beem"); System.out.println(INF); Integer
+		  s=cartoonCharacterDAO.total(); System.out.println(s);
+		  cartoonCharacterDAO.findMaxCreatedDate(); //System.out.println(date);
+		  CartoonCharacterEntity
+		  inf1=cartoonCharacterDAO.findByNameAndCountryAndGenderAndAuthor("nandan",
+		  "newzeland", "male", "lakshmi"); System.out.println(inf1); String s1=
+		  cartoonCharacterDAO.findAuthorByName("nandan"); System.out.println(s1);
+		  Object[] b = cartoonCharacterDAO.findNameAndCountryByAuthor("balala");
+		  System.out.println(b[0]); System.out.println(b[1]); LocalDateTime
+		  info=cartoonCharacterDAO.findCreatedDateByAuthor("manoj"); //
+		  System.out.println(info); cartoonCharacterDAO.updateAuthorByName("singa",
+		  "suhas");
+		 
+		cartoonCharacterDAO.deleteByName("beem");
+		 cartoonCharacterDAO.updateTypeByName("serious", "lakshmi");*/
+		// cartoonCharacterDAO.findAll().forEach(System.out::println);
+		// cartoonCharacterDAO.findAllByAuthor1("singa").forEach(System.out::println);
+		 //cartoonCharacterDAO.findAllByAuthorAndGender1("sowmya", "male").forEach(System.out::println);
+		// cartoonCharacterDAO.findAllByName().forEach(System.out::println);
+		//cartoonCharacterDAO.findAllcountry().forEach(System.out::println);
+		cartoonCharacterDAO.findAllNameAndCoutry().forEach(Object->System.out.println(Object[0]+"::"+Object[1]));
+		cartoonCharacterDAO.findAllNameAndCoutryAndAuthor().forEach(Object->System.out.println(Object[0]+"::"+Object[1]+"::"+Object[2]) );
+		 
 
 	}
-      
+
 }
