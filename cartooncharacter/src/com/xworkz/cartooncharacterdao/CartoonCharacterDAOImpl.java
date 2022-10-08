@@ -1,17 +1,14 @@
 package com.xworkz.cartooncharacterdao;
 
-import java.time.LocalDateTime;
+import static com.xworkz.cartooncharacterutil.FactoryUtil.getFactory;
 
-import java.util.Iterator;
+import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-
-import static com.xworkz.cartooncharacterutil.FactoryUtil.*;
 
 import com.xworkz.cartooncharacterentity.CartoonCharacterEntity;
 

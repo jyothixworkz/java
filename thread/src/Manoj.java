@@ -1,0 +1,16 @@
+
+public class Manoj {
+	public static void main(String[] args) {
+		doStuff();
+		System.out.println(10/0);
+	}
+	public static void doStuff() {
+		doMoreStuff();
+		System.out.println("hello");
+		
+		
+	}
+  public static void doMoreStuff() {
+	System.out.println("hi");
+}
+}
